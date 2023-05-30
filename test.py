@@ -69,15 +69,6 @@ pontos = [{"id": 0, "x": 0, "y": 0},
 
 
 def has_intersection(route):
-    """
-    Verifica se há interseções entre os segmentos de linha que conectam os pontos da rota.
-
-    Args:
-        route (list): Lista de pontos que representam uma rota.
-
-    Returns:
-        bool: True se houver interseção, false caso contrário.
-    """
     n = len(route)
     for i in range(n - 2):
         for j in range(i + 2, n - 1):
@@ -89,25 +80,6 @@ def has_intersection(route):
 
 
 def do_segments_intersect(p1, q1, p2, q2):
-    """
-    Verifica se dois segmentos de linha se intersectam.
-
-    Args:
-        p1 (dict): Dicionário com as coordenadas x e y do primeiro ponto do primeiro segmento de linha.
-        q1 (dict): Dicionário com as coordenadas x e y do segundo ponto do primeiro segmento de linha.
-        p2 (dict): Dicionário com as coordenadas x e y do primeiro ponto do segundo segmento de linha.
-        q2 (dict): Dicionário com as coordenadas x e y do segundo ponto do segundo segmento de linha.
-
-    Returns:
-        bool: True se os segmentos de linha se intersectam, false caso contrário.
-    """
-
-    """
-        Se dois segmentos de linha p1q1 e p2q2 se intersectam, então a orientação dos 
-        triângulos p1p2q2 e q1p2q2 deve ser diferente da orientação dos triângulos p1q1p2 e p1q1q2. 
-        Portanto, a função ccw é usada para determinar a orientação dos triângulos e, assim, determinar se dois 
-        segmentos de linha se intersectam ou não.
-    """
     def ccw(a, b, c):
         return (c['y'] - a['y']) * (b['x'] - a['x']) > (b['y'] - a['y']) * (c['x'] - a['x'])
 
@@ -115,15 +87,6 @@ def do_segments_intersect(p1, q1, p2, q2):
 
 
 def remove_intersection(route):
-    """
-    Remove interseções entre os segmentos de linha que conectam os pontos da rota.
-
-    Args:
-        route (list): Lista de pontos que representam uma rota.
-
-    Returns:
-        list: lista de pontos com as interseções removidas.
-    """
     n = len(route)
     for i in range(n - 2):
         for j in range(i + 2, n - 1):
